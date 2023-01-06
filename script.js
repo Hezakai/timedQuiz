@@ -123,7 +123,7 @@ function tallyScore() {
     setScore = secondsLeft;
     initials = prompt("COMPLETED! You scored: " + setScore + " Enter your initials for the scoreboard")
     var node = document.createElement('li');
-    node.appendChild(document.createTextNode(initials));
+    node.appendChild(document.createTextNode("Player: " + initials + " Score: " + setScore));
     document.querySelector('ul').appendChild(node);
     reset()
 }
