@@ -12,21 +12,24 @@
 <body>
     <div class="headCon">
         <header>
-            <button class=btn id="strBtn">Start</button>
-            <button class=btn id="rstBtn">Reset</button>
-            <button class=btn id="hsBtn">High Scores</button>
+            <div id="button-box">
+                <button class=btn id="strBtn">Start</button>
+                <button class=btn id="rstBtn">Reset</button>
+                <button class=btn id="hsBtn">High Scores</button>
+            </div>
+            <div id="score">Time Remaining: </div>
         </header>
-        <div class="holder">
-            <div class="quizCon">
-                <div id="score">Current Score</div>
-                <div id="question">Your question will appear here!</div>
-                <div id="result"></div>
-                <div class="ansGroup">
-                    <button class=btn id="ansBtn1">Click here to choose this answer!</button>
-                    <button class=btn id="ansBtn2">Click here to choose this answer!</button>
-                    <button class=btn id="ansBtn3">Click here to choose this answer!</button>
-                    <button class=btn id="ansBtn4">Click here to choose this answer!</button>
-                </div>
+    </div>
+    <div class="holder">
+        <div class="quizCon">
+            <div id="question">Your question will appear here!</div>
+            <!-- delete me -->
+            <div id="result"></div>
+            <div class="ansGroup">
+                <button class=btn id="ansBtn1" value="1">Click here to choose this answer!</button>
+                <button class=btn id="ansBtn2" value="2">Click here to choose this answer!</button>
+                <button class=btn id="ansBtn3" value="3">Click here to choose this answer!</button>
+                <button class=btn id="ansBtn4" value="4">Click here to choose this answer!</button>
             </div>
         </div>
     </div>

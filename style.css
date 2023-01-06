@@ -1,11 +1,28 @@
-/* *{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-   } */
+   }
 
 body {
-    color: rgb(255, 247, 3);
+    height: 100vh;
+    color: rgb(0, 0, 0);
+    text-align: center;
+
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    align-items: center;
+}
+
+#score {
+    font-weight: 700;
+    margin-right: 100px;
+    color: red
 }
 
 .btn {
@@ -21,6 +38,7 @@ body {
 }
 
 #holder {
+    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,12 +53,12 @@ body {
 #question {
     border: 1px solid rgb(0, 0, 0);
     border-radius: 5px;
-    margin: 0 0 5px 5px;
+    margin: 10px;
     color: #fff;
     font-size: 30px;
     text-decoration: none;
     background: rgb(59, 177, 255);
-    padding: 0.5em;
-    cursor: pointer;
+    padding: 20px;
+
 }
 
