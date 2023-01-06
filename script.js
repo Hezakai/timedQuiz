@@ -44,25 +44,15 @@ document.getElementById("strBtn").addEventListener("click", startQuiz);
 document.getElementById("rstBtn").addEventListener("click", reset);
 document.getElementById("hsBtn").addEventListener("click", hsToggle);
 
+//toggles the High Score display
 function hsToggle() {
-    // get the clock
     var hScore = document.getElementById('hScoreCon');
-
-    // get the current value of the clock's display property
     var displaySetting = hScore.style.display;
-
-    // also get the clock button, so we can change what it says
-    // var clockButton = document.getElementById('clockButton');
-
-    // now toggle the clock and the button text, depending on current state
     if (displaySetting == 'block') {
-      // clock is visible. hide it
       hScore.style.display = 'none';
     }
     else {
-      // clock is hidden. show it
       hScore.style.display = 'block';
-      // change button text
       clockButton.innerHTML = 'Hide clock';
     }
   }
