@@ -1,4 +1,3 @@
-//TODO - game not restarting properly once completed - starting does not stert the quiz but does start the timer
 //TODO find better coding options
 //TODO fix HighScores list not numberin
 
@@ -49,13 +48,13 @@ function hsToggle() {
     var hScore = document.getElementById('hScoreCon');
     var displaySetting = hScore.style.display;
     if (displaySetting == 'block') {
-      hScore.style.display = 'none';
+        hScore.style.display = 'none';
     }
     else {
-      hScore.style.display = 'block';
-      clockButton.innerHTML = 'Hide clock';
+        hScore.style.display = 'block';
+        clockButton.innerHTML = 'Hide clock';
     }
-  }
+}
 
 // resets the game.  stops the timer >> resets timer >> adds placeholder text back int.  NOTE:  this is bad code i need to figure out how to revert to placeholder
 function reset() {
@@ -63,10 +62,10 @@ function reset() {
     secondsLeft = initTime
     document.getElementById("timer").innerHTML = secondsLeft;
     document.getElementById("question").innerHTML = "Your question will appear here!";
-        document.getElementById("ansBtn1").innerHTML = "Click here to choose this answer!";
-        document.getElementById("ansBtn2").innerHTML = "Click here to choose this answer!";
-        document.getElementById("ansBtn3").innerHTML = "Click here to choose this answer!";
-        document.getElementById("ansBtn4").innerHTML = "Click here to choose this answer!";
+    document.getElementById("ansBtn1").innerHTML = "Click here to choose this answer!";
+    document.getElementById("ansBtn2").innerHTML = "Click here to choose this answer!";
+    document.getElementById("ansBtn3").innerHTML = "Click here to choose this answer!";
+    document.getElementById("ansBtn4").innerHTML = "Click here to choose this answer!";
 }
 
 // shuffles the pool array
@@ -83,18 +82,18 @@ function shuffle() {
 
 //function to start countdown
 function startTimer() {
-    timerInterval = setInterval(function() {
-      secondsLeft--;
-      document.getElementById("timer").innerHTML = secondsLeft;
-  
-      if(secondsLeft === 0) {
-        alert("Times Up")
-        clearInterval(timerInterval);
-        secondsLeft = 20;
-      }
-  
+    timerInterval = setInterval(function () {
+        secondsLeft--;
+        document.getElementById("timer").innerHTML = secondsLeft;
+
+        if (secondsLeft === 0) {
+            alert("Times Up")
+            clearInterval(timerInterval);
+            secondsLeft = 20;
+        }
+
     }, 1000);
-  }
+}
 
 //function to start quiz - starts the coundown >> shuffles the pool array >> pulls the correct answer from the question array >> feeds question into question box and answers to each button >> initializes listening even for buttons >> fires corresponding answer function based on button click
 function startQuiz() {
@@ -138,13 +137,46 @@ function nextQuestion() {
 
 //sets the score based on the remaining seconds >> informs user game is over, their score and asks for their initials >> adds li to html doc with user input from prompt >> resets the game by calling reset()
 function tallyScore() {
+    qNum = 0
     setScore = secondsLeft;
     initials = prompt("COMPLETED! You scored: " + setScore + " Enter your initials for the scoreboard")
-    var node = document.createElement('li');
-    node.appendChild(document.createTextNode("Player: " + initials + " Score: " + setScore));
-    document.querySelector('ul').appendChild(node);
+    var userObj = {
+        name: initials,
+        highscore: setScore
+    }
+
+    var storage = JSON.parse(localStorage.getItem('quizScores'))
+
+    if (storage === null) {
+        storage = []
+    }
+
+    storage.push(userObj)
+
+    localStorage.setItem('quizScores', JSON.stringify(storage))
+
+    getScores()
+}
+
+function getScores() {
+    var storage = JSON.parse(localStorage.getItem('quizScores'))
+    if (storage === null) {
+        let node = document.createElement('li');
+        node.textContent = "None"
+        document.querySelector('ul').appendChild(node)
+    } else {
+        document.querySelector('ul').textContent = ""
+
+        for (let i = 0; i < storage.length; i++) {
+            let node = document.createElement('li');
+            node.textContent = "Player: " + storage[i].name + " Score: " + storage[i].highscore
+            document.querySelector('ul').appendChild(node)
+        }
+    }
     reset()
 }
+
+getScores()
 
 //  Individual functions for each button.  Sets user answer based on value of button clicked >> comapres to user asnwer to the correct answer (rAns) set in startQuiz/nextQuestion >> if they match notify of correct answer >> increment the question to the next number >> call the nextQuestion function >> if no match found alert user of incorrect answer and time penalty >> increment question number >> decrement time penalty from time remaining  NOTE: bad code - find a way to subtract without using -- x3 >> call next question
 function ans1() {
