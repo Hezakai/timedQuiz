@@ -8,10 +8,10 @@ body {
     height: 100vh;
     color: rgb(0, 0, 0);
     text-align: center;
-
 }
 
 header {
+    margin-top: .5em;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -37,20 +37,26 @@ header {
     cursor: pointer;
 }
 
-#holder {
-    height: 500px;
+.holder {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 600px;
   }
 
 .quizCon {
+    display: flex;
+    height: 500px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     border-radius: 5px;
     background: black;
 }
 
 #question {
+    display: flex;
+    text-align: center;
+    align-items:center;
+    margin-top: .5em;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 5px;
     margin: 10px;
@@ -59,6 +65,28 @@ header {
     text-decoration: none;
     background: rgb(59, 177, 255);
     padding: 20px;
+}
 
+/* .ansGroup {
+    display: block;
+    align-items: center;
+    justify-content: center;
+} */
+
+.btnCon {
+    position: relative;
+}
+
+.ansGroup {
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+
+.ansGroup button {
+    display: block;
+    width: 300px;
 }
 
