@@ -20,4 +20,4 @@ The full repo is located at: https://github.com/Hezakai/timedQuiz
 You can view the live page at: https://hezakai.github.io/timedQuiz/
 
 ### Screenshot
-![Screenshot of deployed website](./assets/images/portfolioss.PNG)
+![Screenshot of deployed website](./QuizSS.PNG)
