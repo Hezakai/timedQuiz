@@ -90,3 +90,9 @@ header {
     width: 300px;
 }
 
+#hScoreCon {
+    /* list-style-type: none; */
+    color: red;
+    font-size: 40px;
+    display: none;
+}

@@ -1,3 +1,7 @@
+//TODO - game not restarting properly once completed - starting does not stert the quiz but does start the timer
+//TODO find better coding options
+//TODO fix HighScores list not numberin
+
 //initialization of variables and arrays
 // sets timer value globally
 const initTime = 30
@@ -38,6 +42,30 @@ var pool = [].concat(questions);
 document.getElementById("timer").innerHTML = secondsLeft;
 document.getElementById("strBtn").addEventListener("click", startQuiz);
 document.getElementById("rstBtn").addEventListener("click", reset);
+document.getElementById("hsBtn").addEventListener("click", hsToggle);
+
+function hsToggle() {
+    // get the clock
+    var hScore = document.getElementById('hScoreCon');
+
+    // get the current value of the clock's display property
+    var displaySetting = hScore.style.display;
+
+    // also get the clock button, so we can change what it says
+    // var clockButton = document.getElementById('clockButton');
+
+    // now toggle the clock and the button text, depending on current state
+    if (displaySetting == 'block') {
+      // clock is visible. hide it
+      hScore.style.display = 'none';
+    }
+    else {
+      // clock is hidden. show it
+      hScore.style.display = 'block';
+      // change button text
+      clockButton.innerHTML = 'Hide clock';
+    }
+  }
 
 // resets the game.  stops the timer >> resets timer >> adds placeholder text back int.  NOTE:  this is bad code i need to figure out how to revert to placeholder
 function reset() {
